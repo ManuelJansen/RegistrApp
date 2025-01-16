@@ -1,2 +1,19 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+
+ion-content {
+    --background: url("/assets/img/background.jpg") no-repeat center/cover;   
+    font-family: 'Times New Roman', Times, serif;
+}
+ion-header ion-toolbar{
+    --ion-toolbar-background: #87CEEB;
+}
+ion-icon{
+    font-size: 30px;
+    margin-left: 5px;
+  }
+
+:root{
+    --ion-color-primary: #5FC9E9;
+}
