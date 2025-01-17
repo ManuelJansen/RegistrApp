@@ -6,12 +6,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenido alumno {{nombreUsuario}} </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Awesome content
-    </ion-card-content>
-  </ion-card>
+  
+  <div id="container">
+    <ion-card ion-card>
+
+      <ion-card-header>
+        <ion-card-title>Perfil</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-img src="assets/img/rafaimg.jpg"></ion-img>
+        <ion-label> Bienvenido alumno {{nombreUsuario}}</ion-label>
+      </ion-card-content>
+
+    
+    </ion-card>
+  </div>
 </ion-content>
