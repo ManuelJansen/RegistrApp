@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-icon type="button" routerLink="/login" slot="start" name="arrow-back-outline"></ion-icon>
     <ion-title>Recuperación de Contraseña</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,6 +16,17 @@
       <ion-input [(ngModel)]="user.correo" label-placement="floating" fill="outline" label="Correo" placeholder="Ingrese su Correo Electrónico"></ion-input>
       <br>
       <ion-button (click)="recuperar()">Enviar Código</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="correoEnviado">
+    <ion-card-header>
+      <ion-card-title>Código de Recuperación</ion-card-title>
+      <ion-card-subtitle>Se ha enviado un código de 6 dígitos al correo ingresado.</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input [(ngModel)]="numeroIngresado" fill="outline" label-placement="floating" label="Código" placeholder="Ingrese el código"></ion-input>
+      <br>
+      <ion-button (click)="comparar()">Ingresar</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

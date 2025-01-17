@@ -15,12 +15,12 @@
       <br>
       <ion-input [(ngModel)]="user.password" type="password" label-placement="floating" fill="outline" label="Contraseña"
         placeholder="Ingrese su Contraseña"></ion-input>
-      <br>
       <div *ngIf="error">
         <ion-label>{{msj}}</ion-label>
       </div>
+      <ion-button (click)="ingresar()" size="small" id="btnIngesar">Ingresar</ion-button>
       <br>
-      <ion-button (click)="ingresar()" shape="round" size="small" id="btnIngesar">Ingresar</ion-button>
+      <ion-button routerLink="/recuperar-pass" fill="outline" expand="block">¿Olvidaste tu Contraseña?</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

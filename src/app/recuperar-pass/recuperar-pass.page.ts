@@ -13,6 +13,8 @@ export class RecuperarPassPage implements OnInit {
 
   numeroAleatorio: number|null = null;
 
+  numeroIngresado: number|null = null;
+
   correoEnviado = false;
 
   generarNumero(): number|null{
@@ -29,6 +31,7 @@ export class RecuperarPassPage implements OnInit {
 
   recuperar(){
     if (this.user.usuario.length>0 && this.user.correo.length>0){
+      this.numeroAleatorio = this.generarNumero();
       this.sendEmail(this.user.usuario, this.numeroAleatorio, this.user.correo);
     };
   };
@@ -47,4 +50,12 @@ export class RecuperarPassPage implements OnInit {
       console.error('Error enviando correo', error);
     }
   }
-}
+
+  comparar(){
+    if(this.numeroIngresado == this.numeroAleatorio){
+      console.log('numeross iguales');
+    }else{
+      console.log('verificar numeros');
+    };
+  };
+};
