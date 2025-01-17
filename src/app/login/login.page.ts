@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -33,18 +33,16 @@ export class LoginPage implements OnInit {
         this.tipo = "alum"
       };
 
-      if(this.tipo == "alum"){
-        this.router.navigate(['home-alumno']);
+      if(this.tipo == "alum")
+        {let navigationExtras: NavigationExtras = { state: { user: this.user }};
+        this.router.navigate(['home-alumno'], navigationExtras);
         this.msj="";
         this.error=false;
-        this.user.usuario = "";
-        this.user.password = "";
-      }else if(this.tipo == "prof"){
-        this.router.navigate(['home']);
+      }else if(this.tipo == "prof")
+        {let navigationExtras: NavigationExtras = { state: { user: this.user }}
+        this.router.navigate(['home'],navigationExtras);
         this.msj="";
         this.error=false;
-        this.user.usuario = "";
-        this.user.password = "";
       };
     }else{
       this.error = true;

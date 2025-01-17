@@ -11,11 +11,20 @@ export class HomeAlumnoPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  user = {
+    usuario: '',
+    password: '',
+  };
+  nombreUsuario = '';
   ngOnInit() {
+    this.user = history.state.user;
+    this.nombreUsuario = this.user.usuario;
   }
+  
 
-  saludar(){
-    this.router.navigate(["login"])
+  volverInicio(){
+    this.router.navigate(["login"]);
+    
   }
 
 }

@@ -11,8 +11,21 @@ export class HomePage {
 
   constructor(private router: Router) {}
 
-  saludar(){
+  user = {
+    usuario: '',
+    password: '',
+  };
+  nombreUsuario = '';
+  ngOnInit() {
+    this.user = history.state.user;
+    this.nombreUsuario = this.user.usuario;
+  }
+  
+
+  volverInicio(){
     this.router.navigate(["login"])
   }
+
+
 
 }
