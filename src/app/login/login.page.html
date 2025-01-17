@@ -14,14 +14,15 @@
         placeholder="Ingrese su Usuario"></ion-input>
       <br>
       <ion-input [(ngModel)]="user.password" type="password" label-placement="floating" fill="outline" label="Contraseña"
-        placeholder="Ingrese su Contraseña"></ion-input>
+        placeholder="Ingrese su Contraseña">
+      </ion-input>
       <div *ngIf="error">
         <ion-label>{{msj}}</ion-label>
       </div>
       <br>
       <div id="seccionCarga" *ngIf="carga">
-        <ion-label> Cargando </ion-label>
-          <mat-spinner></mat-spinner>
+        <ion-label>Cargando</ion-label>
+        <mat-spinner></mat-spinner>
       </div>
       <ion-button (click)="ingresar()" size="small" id="btnIngesar">Ingresar</ion-button>
       <br>

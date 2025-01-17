@@ -11,6 +11,7 @@ ion-button{
 }
 
 #seccionCarga {
+    text-align: center;
     padding: 2%;
     margin-left: 25%;
     margin-right: 25%;
@@ -18,7 +19,7 @@ ion-button{
 }
 
 #seccionCarga mat-spinner {
-    width: 50% !important;
+    width: 30% !important;
     margin: auto;
     margin-top: 3%;
 }

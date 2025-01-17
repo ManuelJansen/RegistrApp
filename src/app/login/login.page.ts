@@ -40,17 +40,17 @@ export class LoginPage implements OnInit {
           this.carga = true;
           this.router.navigate(['home-alumno'], navigationExtras);
           this.msj="Conexion exitosa";
-          this.error=false;
-          
+          this.error = false;
+          this.carga = false;
         },3000);
       }else if(this.tipo == "prof"){
         this.carga = true;
         let navigationExtras: NavigationExtras = { state: { user: this.user }}
         setTimeout(()=> {
           this.router.navigate(['home'],navigationExtras);
-          this.msj="Conexion exitosa";
-          this.error=false;
-          
+          this.msj = "Conexion exitosa";
+          this.error = false;
+          this.carga = false;
         },3000);
       };
     }else{
