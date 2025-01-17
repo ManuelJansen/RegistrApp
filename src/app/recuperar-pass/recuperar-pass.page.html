@@ -1,13 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>recuperarPass</ion-title>
+    <ion-title>Recuperación de Contraseña</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recuperarPass</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ingrese sus Datos:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input [(ngModel)]="user.usuario" label-placement="floating" fill="outline" label="Usuario" placeholder="Ingrese su Usuario"></ion-input>
+      <br>
+      <ion-input [(ngModel)]="user.correo" label-placement="floating" fill="outline" label="Correo" placeholder="Ingrese su Correo Electrónico"></ion-input>
+      <br>
+      <ion-button (click)="recuperar()">Enviar Código</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
