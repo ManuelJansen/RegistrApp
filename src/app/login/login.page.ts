@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private animation: AnimationController) { }
 
   ngOnInit() {
   }
@@ -20,11 +21,10 @@ export class LoginPage implements OnInit {
   }
 
   tipo = "prof";
-
   msj = "";
 
   error = false;
-
+  carga = false;
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
       if(this.user.usuario == "j.riquelme"){
@@ -33,16 +33,25 @@ export class LoginPage implements OnInit {
         this.tipo = "alum"
       };
 
-      if(this.tipo == "alum")
-        {let navigationExtras: NavigationExtras = { state: { user: this.user }};
-        this.router.navigate(['home-alumno'], navigationExtras);
-        this.msj="";
-        this.error=false;
-      }else if(this.tipo == "prof")
-        {let navigationExtras: NavigationExtras = { state: { user: this.user }}
-        this.router.navigate(['home'],navigationExtras);
-        this.msj="";
-        this.error=false;
+      if(this.tipo == "alum"){
+        this.carga = true;
+        let navigationExtras: NavigationExtras = { state: { user: this.user }};
+        setTimeout(()=> {
+          this.carga = true;
+          this.router.navigate(['home-alumno'], navigationExtras);
+          this.msj="Conexion exitosa";
+          this.error=false;
+          
+        },3000);
+      }else if(this.tipo == "prof"){
+        this.carga = true;
+        let navigationExtras: NavigationExtras = { state: { user: this.user }}
+        setTimeout(()=> {
+          this.router.navigate(['home'],navigationExtras);
+          this.msj="Conexion exitosa";
+          this.error=false;
+          
+        },3000);
       };
     }else{
       this.error = true;
