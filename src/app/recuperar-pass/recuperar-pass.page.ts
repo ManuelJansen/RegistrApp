@@ -22,12 +22,13 @@ export class RecuperarPassPage implements OnInit {
   };
 
   ngOnInit() {
-  }
+  };
+
   user = {
     usuario: "",
     password: "",
     correo: "",
-  }
+  };
 
   recuperar(){
     if (this.user.usuario.length>0 && this.user.correo.length>0){
@@ -48,8 +49,8 @@ export class RecuperarPassPage implements OnInit {
       console.log(response)
     }catch (error){
       console.error('Error enviando correo', error);
-    }
-  }
+    };
+  };
 
   comparar(){
     if(this.numeroIngresado == this.numeroAleatorio){
