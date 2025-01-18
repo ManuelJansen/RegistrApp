@@ -1,3 +1,4 @@
+<!--Home Alumno-->
 <ion-header>
   <ion-toolbar>
     <ion-icon type="button" (click)="volverInicio()" slot="start" name="arrow-back-outline"></ion-icon>
@@ -6,20 +7,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
   <div id="container">
     <ion-card ion-card>
-
       <ion-card-header>
         <ion-card-title>Perfil</ion-card-title>
       </ion-card-header>
-    
       <ion-card-content>
         <ion-img src="assets/img/rafaimg.jpg"></ion-img>
         <ion-label> Bienvenido alumno {{nombreUsuario}}</ion-label>
       </ion-card-content>
-
-    
     </ion-card>
   </div>
 </ion-content>

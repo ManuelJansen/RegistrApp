@@ -18,21 +18,23 @@ export class LoginPage implements OnInit {
   user = {
     usuario: '',
     password: ''
-  }
+  };
 
-  tipo = "prof";
+  tipo = "";
   msj = "";
 
   error = false;
   carga = false;
+
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
+      //Asignación de tipo de usuario
       if(this.user.usuario == "j.riquelme"){
         this.tipo = "prof"
       }else if(this.user.usuario == "m.jansen"){
         this.tipo = "alum"
       };
-
+      //Navegación según tipo
       if(this.tipo == "alum"){
         this.carga = true;
         let navigationExtras: NavigationExtras = { state: { user: this.user }};
@@ -45,7 +47,7 @@ export class LoginPage implements OnInit {
         },3000);
       }else if(this.tipo == "prof"){
         this.carga = true;
-        let navigationExtras: NavigationExtras = { state: { user: this.user }}
+        let navigationExtras: NavigationExtras = { state: { user: this.user }};
         setTimeout(()=> {
           this.router.navigate(['home'],navigationExtras);
           this.msj = "Conexion exitosa";
@@ -54,16 +56,15 @@ export class LoginPage implements OnInit {
         },3000);
       };
     }else{
+      //Error
       this.error = true;
-      this.msj = "Credenciales no pueden estar vacías"
-    }
-    
-  }
+      this.msj = "Credenciales no pueden estar vacías";
+    };
+  };
   
   recargarPagina(){
     this.router.navigate(['login']);
     this.user.usuario="";
     this.user.password="";
-
-  }
-}
+  };
+};

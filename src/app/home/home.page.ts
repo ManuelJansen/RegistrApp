@@ -15,17 +15,15 @@ export class HomePage {
     usuario: '',
     password: '',
   };
+
   nombreUsuario = '';
+
   ngOnInit() {
     this.user = history.state.user;
     this.nombreUsuario = this.user.usuario;
-  }
-  
+  };
 
   volverInicio(){
     this.router.navigate(["login"])
-  }
-
-
-
+  };
 }
