@@ -9,14 +9,14 @@
   <!--Card Ingreso de Datos-->
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Ingrese sus Datos:</ion-card-title>
+      <ion-card-title id="titulos">Ingrese sus Datos:</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-input [(ngModel)]="user.usuario" label-placement="floating" fill="outline" label="Usuario" placeholder="Ingrese su Usuario"></ion-input>
+      <ion-input [(ngModel)]="user.usuario" id="inputs" label-placement="floating" fill="outline" label="Usuario" placeholder="Ingrese su Usuario"></ion-input>
       <br>
-      <ion-input [(ngModel)]="user.correo" label-placement="floating" fill="outline" label="Correo" placeholder="Ingrese su Correo Electrónico"></ion-input>
+      <ion-input [(ngModel)]="user.correo" id="inputs" label-placement="floating" fill="outline" label="Correo" placeholder="Ingrese su Correo Electrónico"></ion-input>
       <br>
-      <ion-button (click)="recuperar()">Enviar Código</ion-button>
+      <ion-button (click)="recuperar()" id="btnAzules">Enviar Código</ion-button>
     </ion-card-content>
   </ion-card>
   <!--Card Loading--> 
@@ -39,13 +39,13 @@
   <!--Card Ingreso de Código-->
   <ion-card *ngIf="correoEnviado">
     <ion-card-header>
-      <ion-card-title>Código de Recuperación</ion-card-title>
-      <ion-card-subtitle>Se ha enviado un código de 6 dígitos al correo ingresado.</ion-card-subtitle>
+      <ion-card-title id="titulos" >Código de Recuperación</ion-card-title>
+      <ion-card-subtitle id="titulos">Se ha enviado un código de 6 dígitos al correo ingresado.</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-input [(ngModel)]="numeroIngresado" fill="outline" label-placement="floating" label="Código" placeholder="Ingrese el código"></ion-input>
+      <ion-input [(ngModel)]="numeroIngresado"  id="inputs" fill="outline" label-placement="floating" label="Código" placeholder="Ingrese el código"></ion-input>
       <br>
-      <ion-button (click)="comparar()">Ingresar</ion-button>
+      <ion-button (click)="comparar()" id="btnAzules">Ingresar</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
