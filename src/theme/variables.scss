@@ -2,12 +2,21 @@
 // http://ionicframework.com/docs/theming/
 
 ion-content {
-    --background: url("/assets/img/background.jpg") no-repeat center/cover;   
+    --background: url("/assets/img/background(old).jpg") no-repeat center/cover;  
 };
+
+ion-card{
+    background-color: #F5F5F5;
+
+}
+
+#error{
+    color: red;
+}
 
 ion-header ion-toolbar{
     text-align: center;
-    --ion-toolbar-background: #87CEEB;  
+    --ion-toolbar-background: #ffcb22;  
 };
 
 ion-icon{

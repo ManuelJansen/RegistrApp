@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { RecuperarPassPageRoutingModule } from './recuperar-pass-routing.module';
-
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { RecuperarPassPage } from './recuperar-pass.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { RecuperarPassPage } from './recuperar-pass.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RecuperarPassPageRoutingModule
+    RecuperarPassPageRoutingModule,
+    MatProgressSpinner
   ],
   declarations: [RecuperarPassPage]
 })

@@ -3,6 +3,7 @@
     <ion-title type="button" (click)="recargarPagina()">RegistrApp</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
@@ -10,8 +11,8 @@
     </ion-card-header>
     <ion-card-content>
       <!--Mensaje de Error-->
-      <div id="error">
-        <ion-label *ngIf="error">{{msj}}</ion-label>
+      <div>
+        <ion-label id="error" *ngIf="error">{{msj}}</ion-label>
       </div>
       <!--Usuario-->
       <ion-input 
@@ -36,7 +37,7 @@
         <mat-spinner></mat-spinner>
       </div>
       <!--Botón de Ingresar-->
-      <ion-button (click)="ingresar()" size="small" id="btnIngesar">Ingresar</ion-button>
+      <ion-button (click)="ingresar()" id="btnIngesar">Ingresar</ion-button>
       <br>
       <!--Botón de Recuperar Contraseña-->
       <ion-button routerLink="/recuperar-pass" fill="outline" expand="block">¿Olvidaste tu Contraseña?</ion-button>

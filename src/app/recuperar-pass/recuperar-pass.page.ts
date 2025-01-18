@@ -17,6 +17,10 @@ export class RecuperarPassPage implements OnInit {
 
   correoEnviado = false;
 
+  carga = false;
+
+  error = false;
+
   generarNumero(): number|null{
     return Math.floor(100000 + Math.random() * 900000);
   };
@@ -32,8 +36,12 @@ export class RecuperarPassPage implements OnInit {
 
   recuperar(){
     if (this.user.usuario.length>0 && this.user.correo.length>0){
+      this.error = false;
+      this.carga = true;
       this.numeroAleatorio = this.generarNumero();
       this.sendEmail(this.user.usuario, this.numeroAleatorio, this.user.correo);
+    }else{
+      this.error = true;
     };
   };
 
@@ -45,10 +53,13 @@ export class RecuperarPassPage implements OnInit {
     };
     try{
       const response = await this.recupService.sendEmail(formData);
+      this.carga = false;
       this.correoEnviado = true;
-      console.log(response)
+      console.log(response);
     }catch (error){
       console.error('Error enviando correo', error);
+      this.error = true;
+      this.carga = false;
     };
   };
 
