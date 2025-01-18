@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
   constructor(private router: Router, private animation: AnimationController) { }
 
   ngOnInit() {
+    this.animacion();
   }
 
   user = {
@@ -25,6 +26,40 @@ export class LoginPage implements OnInit {
 
   error = false;
   carga = false;
+
+  animacion() {
+    /* Seleccionamos el elemento que deseamos utilizar para la animacion
+       POr medio de un querySelector
+    */
+    const imagen = document.querySelector(
+      'ion-card ion-card-content ion-img'
+    ) as HTMLElement;
+    /* Una vez seleccionamos , generamos la animacion por medio del animation controller
+      Rectificar cada atributo en la documentacion 
+      https://ionicframework.com/docs/utilities/animations
+    */
+    const animacion = this.animation
+      .create()
+      .addElement(imagen)
+      .duration(6000)
+      .iterations(Infinity)
+      .keyframes([
+        {
+          offset: 0,
+          transform: 'translateX(0px)', // Posición original
+        },
+        {
+          offset: 0.5,
+          transform: 'translateX(200px)', // Mover a 200px a la derecha
+        },
+        {
+          offset: 1,
+          transform: 'translateX(0px)', // Regresar a la posición original
+        },
+      ]);
+    /* Por ultimo le damos play a la animacion para que empiece */
+    animacion.play();
+  }
 
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
