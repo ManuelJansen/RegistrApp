@@ -15,7 +15,8 @@ ion-card{
 
 ion-header ion-toolbar{
     text-align: center;
-    --ion-toolbar-background: #ffcb22;  
+    --ion-toolbar-background: #5d9ecf;
+    color: #F5F5F5  
 };
 
 ion-icon{
@@ -23,7 +24,37 @@ ion-icon{
     margin-left: 5px;
 };
 
+
+
+#titulos {
+    color: #333333;
+    text-align: center;
+}
+
+#btnAzules {
+     
+    color: #f5f5f5; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+}
+
+#btnSinfondo {
+    
+    color: #f5f5f5; /* Color azul claro para el texto */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño del texto */
+    text-align: center; /* Alineación del texto */
+}
+
+#inputs{
+    color: #333333;
+    --highlight-color: #5d9ecf;
+    
+
+}
+
 :root{
-    --ion-color-primary: #5FC9E9;
+    --ion-color-primary: #5d9ecf;
     --ion-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 };
