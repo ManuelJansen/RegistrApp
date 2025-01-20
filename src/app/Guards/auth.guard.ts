@@ -10,6 +10,9 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   }else{
     router.navigate(['/login']);
+
+    //toast de error
+
     return false;
   };
 

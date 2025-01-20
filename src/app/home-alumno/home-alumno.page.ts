@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../Servicios/auth.service';
 
 @Component({
   selector: 'app-home-alumno',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeAlumnoPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   user = {
     usuario: '',
@@ -25,6 +26,11 @@ export class HomeAlumnoPage implements OnInit {
   
   volverInicio(){
     this.router.navigate(["login"]);
+  };
+
+  logOut(){
+    this.auth.logOut();
+    this.router.navigate(['/login']);
   };
 
 };
