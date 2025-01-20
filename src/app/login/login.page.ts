@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AnimationController } from '@ionic/angular';
+import { AuthService } from '../Servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { AnimationController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router, private animation: AnimationController) { }
+  constructor(private router: Router, private animation: AnimationController, private auth: AuthService) { }
 
   ngOnInit() {
     this.animacion();
@@ -55,32 +56,36 @@ export class LoginPage implements OnInit {
 
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
-      //Asignación de tipo de usuario
-      if(this.user.usuario == "j.riquelme"){
-        this.tipo = "prof"
-      }else if(this.user.usuario == "m.jansen"){
-        this.tipo = "alum"
-      };
-      //Navegación según tipo
-      if(this.tipo == "alum"){
-        this.carga = true;
-        let navigationExtras: NavigationExtras = { state: { user: this.user }};
-        setTimeout(()=> {
+      if(this.auth.login(this.user.usuario, this.user.password)){
+        //Asignación de tipo de usuario
+        if(this.user.usuario == "j.riquelme"){
+          this.tipo = "prof"
+        }else if(this.user.usuario == "m.jansen"){
+          this.tipo = "alum"
+        };
+        //Navegación según tipo
+        if(this.tipo == "alum"){
           this.carga = true;
-          this.router.navigate(['home-alumno'], navigationExtras);
-          this.msj="Conexion exitosa";
-          this.error = false;
-          this.carga = false;
-        },3000);
-      }else if(this.tipo == "prof"){
-        this.carga = true;
-        let navigationExtras: NavigationExtras = { state: { user: this.user }};
-        setTimeout(()=> {
-          this.router.navigate(['home'],navigationExtras);
-          this.msj = "Conexion exitosa";
-          this.error = false;
-          this.carga = false;
-        },3000);
+          let navigationExtras: NavigationExtras = { state: { user: this.user }};
+          setTimeout(()=> {
+            this.carga = true;
+            this.router.navigate(['home-alumno'], navigationExtras);
+            this.msj="Conexion exitosa";
+            this.error = false;
+            this.carga = false;
+          },3000);
+        }else if(this.tipo == "prof"){
+          this.carga = true;
+          let navigationExtras: NavigationExtras = { state: { user: this.user }};
+          setTimeout(()=> {
+            this.router.navigate(['home'],navigationExtras);
+            this.msj = "Conexion exitosa";
+            this.error = false;
+            this.carga = false;
+          },3000);
+        }else{
+          this.msj = "Credenciales Erróneas"
+        };
       };
     }else{
       //Error
