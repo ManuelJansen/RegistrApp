@@ -7,11 +7,11 @@ ion-content {
 
 ion-card{
     background-color: #F5F5F5;
-}
+};
 
 #error{
     color: red;
-}
+};
 
 ion-header ion-toolbar{
     text-align: center;
@@ -24,35 +24,29 @@ ion-icon{
     margin-left: 5px;
 };
 
-
-
 #titulos {
     color: #333333;
     text-align: center;
-}
+};
 
-#btnAzules {
-     
+#btnAzules {   
     color: #f5f5f5; 
     border: none; 
     border-radius: 5px; 
     font-size: 16px; 
-}
+};
 
-#btnSinfondo {
-    
-    color: #f5f5f5; /* Color azul claro para el texto */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño del texto */
-    text-align: center; /* Alineación del texto */
-}
+#btnSinfondo {  
+    color: #f5f5f5;
+    border-radius: 5px; 
+    font-size: 16px; 
+    text-align: center; 
+};
 
 #inputs{
     color: #333333;
     --highlight-color: #5d9ecf;
-    
-
-}
+};
 
 :root{
     --ion-color-primary: #5d9ecf;

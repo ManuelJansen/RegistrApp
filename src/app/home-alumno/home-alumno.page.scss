@@ -5,18 +5,16 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-}
-
+};
 
 #container ion-card ion-card-content ion-img {
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    object-fit: cover;
-    border: 2px solid white;
-    border-radius: 50%;
-    //overflow:hidden = Permite ocultar el sobrante de la imagen vs el contenedor y bordes
-    overflow: hidden;
-  }
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+};

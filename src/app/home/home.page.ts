@@ -26,4 +26,5 @@ export class HomePage {
   volverInicio(){
     this.router.navigate(["login"])
   };
-}
+  
+};

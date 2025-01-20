@@ -28,16 +28,9 @@ export class LoginPage implements OnInit {
   carga = false;
 
   animacion() {
-    /* Seleccionamos el elemento que deseamos utilizar para la animacion
-       POr medio de un querySelector
-    */
     const imagen = document.querySelector(
       'ion-card ion-card-content ion-img'
     ) as HTMLElement;
-    /* Una vez seleccionamos , generamos la animacion por medio del animation controller
-      Rectificar cada atributo en la documentacion 
-      https://ionicframework.com/docs/utilities/animations
-    */
     const animacion = this.animation
       .create()
       .addElement(imagen)
@@ -46,20 +39,19 @@ export class LoginPage implements OnInit {
       .keyframes([
         {
           offset: 0,
-          transform: 'translateX(0px)', // Posición original
+          transform: 'translateX(0px)', 
         },
         {
           offset: 0.5,
-          transform: 'translateX(200px)', // Mover a 200px a la derecha
+          transform: 'translateX(200px)', 
         },
         {
           offset: 1,
-          transform: 'translateX(0px)', // Regresar a la posición original
+          transform: 'translateX(0px)', 
         },
       ]);
-    /* Por ultimo le damos play a la animacion para que empiece */
     animacion.play();
-  }
+  };
 
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
