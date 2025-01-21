@@ -66,6 +66,6 @@ export class AuthService {
   };
 
   logOut(){
-    AuthService.isLogged = false;
+    this.storage.removeItem('conectado');
   };
 };
