@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AnimationController } from '@ionic/angular';
 import { AuthService } from '../Servicios/auth.service';
+import { LocalStorageService } from '../Servicios/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthService } from '../Servicios/auth.service';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router, private animation: AnimationController, private auth: AuthService) { }
+  constructor(private router: Router, private animation: AnimationController, private auth: AuthService, private storage: LocalStorageService) { }
 
   ngOnInit() {
     this.animacion();
@@ -58,7 +59,6 @@ export class LoginPage implements OnInit {
     if(this.user.usuario.length>0 && this.user.password.length>0){
       if(this.auth.loginStorage(this.user.usuario, this.user.password)){
         //Asignación de tipo de usuario
-        
         if(this.user.usuario == "j.riquelme"){
           this.tipo = "prof"
         }else if(this.user.usuario == "m.jansen"){

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
 
   private storage: LocalStorageService = new LocalStorageService();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   loginStorage(user: string, pass: string): boolean{
     const listaUsuarios = this.storage.getItem('users') || [];
@@ -19,6 +20,11 @@ export class AuthService {
        userFind.username == user && userFind.pass == pass);
 
     if(conectado){
+      if(conectado.tipo == "alum"){
+        this.router.navigate(['/home-alumno'])
+      }else{
+        this.router.navigate(['/home']);
+      };
       this.storage.setItem('conectado', conectado);
       return true;
     }else{
