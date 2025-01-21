@@ -26,6 +26,29 @@ export class AuthService {
     };
   };
 
+  registrar(user: string, pass: string, tipo: number|null){
+    const listaUsuarios = this.storage.getItem('users') || [];
+
+    if(listaUsuarios.find(
+      (userFind: any) =>
+        userFind.username == user
+    )){
+      return false;
+    };
+
+    const nuevoUsuario = {
+      id: listaUsuarios.length + 1,
+      username: user,
+      tipo: tipo,
+      pass: pass,
+    };
+
+    listaUsuarios.push(nuevoUsuario);
+
+    this.storage.setItem('users', listaUsuarios);
+    return true;
+  };
+
   login(user:string, pass:string):boolean{
     if (user=="j.riquelme" && pass=="pass1234"){
       AuthService.isLogged = true;
@@ -39,7 +62,7 @@ export class AuthService {
   };
 
   isConected():boolean{
-    return AuthService.isLogged;
+    return this.storage.getItem('conectado') !== null;
   };
 
   logOut(){
