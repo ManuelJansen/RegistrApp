@@ -56,8 +56,9 @@ export class LoginPage implements OnInit {
 
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
-      if(this.auth.login(this.user.usuario, this.user.password)){
+      if(this.auth.loginStorage(this.user.usuario, this.user.password)){
         //Asignación de tipo de usuario
+        
         if(this.user.usuario == "j.riquelme"){
           this.tipo = "prof"
         }else if(this.user.usuario == "m.jansen"){
