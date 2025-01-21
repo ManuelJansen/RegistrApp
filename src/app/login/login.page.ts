@@ -94,6 +94,9 @@ export class LoginPage implements OnInit {
     };
   };
   
+
+  
+
   recargarPagina(){
     this.router.navigate(['login']);
     this.user.usuario="";

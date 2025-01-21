@@ -12,11 +12,11 @@ export class AuthService {
 
   constructor() { }
 
-  loginStorage(user: string, pass: string, tipo: number|null): boolean{
+  loginStorage(user: string, pass: string): boolean{
     const listaUsuarios = this.storage.getItem('users') || [];
 
     const conectado = listaUsuarios.find((userFind: any) =>
-       userFind.username == user && userFind.pass == pass && userFind.tipo == tipo);
+       userFind.username == user && userFind.pass == pass);
 
     if(conectado){
       this.storage.setItem('conectado', conectado);
@@ -26,7 +26,7 @@ export class AuthService {
     };
   };
 
-  registrar(user: string, pass: string, tipo: number|null){
+  registrar(user: string, pass: string, tipo: string){
     const listaUsuarios = this.storage.getItem('users') || [];
 
     if(listaUsuarios.find(
