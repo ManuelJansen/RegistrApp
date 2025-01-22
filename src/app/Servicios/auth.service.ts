@@ -22,6 +22,11 @@ export class AuthService {
        userFind.username == user && userFind.pass == pass);
 
     if(conectado){
+      if(conectado.tipo == "alum"){
+        this.router.navigate(['/home-alumno'])
+      }else{
+        this.router.navigate(['/home']);
+      };
       this.storage.setItem('conectado', conectado);
       return true;
     }else{
