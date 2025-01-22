@@ -29,7 +29,7 @@
         id="inputs"
       >
       </ion-input>
-      <br />
+      <br>
       <!--Contraseña-->
       <ion-input
         [(ngModel)]="user.password"
@@ -41,6 +41,7 @@
         id="inputs"
       >
       </ion-input>
+      <br>
       <!--Tipo-->
       <ion-input
         [(ngModel)]="user.tipo"
@@ -48,18 +49,16 @@
         fill="outline"
         label="Tipo"
         placeholder="Indique si es profesor o alumno"
-        id="inputs"
-      >
+        id="inputs">
       </ion-input>
+      <br>
       <!--Mat Spinner-->
 
       <!--Botón de Ingresar-->
       <ion-button (click)="registrar()" id="btnAzules">Registrarse</ion-button>
-      <br />
+      <br>
       <!--Botón de Recuperar Contraseña-->
-      <ion-button routerLink="/recuperar-pass" expand="block" id="btnSinfondo"
-        >¿Olvidaste tu Contraseña?</ion-button
-      >
+      <ion-button routerLink="/recuperar-pass" expand="block" id="btnSinfondo">¿Olvidaste tu Contraseña?</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
