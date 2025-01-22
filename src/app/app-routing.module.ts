@@ -31,12 +31,13 @@ const routes: Routes = [
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
   },
   {
-    path: '**',
-    redirectTo: 'error',
-  },  {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  }
+  },
+  {
+    path: '**',
+    redirectTo: 'error',
+  },
 
 ];
 
