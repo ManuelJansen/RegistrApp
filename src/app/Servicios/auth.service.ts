@@ -11,7 +11,9 @@ export class AuthService {
 
   private storage: LocalStorageService = new LocalStorageService();
 
-  constructor(private router: Router) { }
+  private router: Router = new Router();
+
+  constructor() { }
 
   loginStorage(user: string, pass: string): boolean{
     const listaUsuarios = this.storage.getItem('users') || [];

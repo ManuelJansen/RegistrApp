@@ -12,7 +12,7 @@ import { LocalStorageService } from '../Servicios/local-storage.service';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router, private animation: AnimationController, private auth: AuthService, private storage: LocalStorageService) { }
+  constructor(private router: Router, private animation: AnimationController, private auth: AuthService) { }
 
   ngOnInit() {
     this.animacion();
