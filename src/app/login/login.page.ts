@@ -57,6 +57,41 @@ export class LoginPage implements OnInit {
 
   ingresar(){
     if(this.user.usuario.length>0 && this.user.password.length>0){
+      this.error = false;
+      this.auth.loginApi(this.user.usuario, this.user.password).then((res)=>{
+        if(res){
+          console.log(res);
+          let navigationExtras: NavigationExtras = {
+            state: {user: this.user}
+          };
+          this.carga = true;
+          this.tipo = this.auth.getRol();
+          this.msj = "Conexión Exitosa";
+
+          setTimeout(()=>{
+            if(this.tipo == "alum"){
+              this.router.navigate(['/home-alumno'], navigationExtras);
+              this.msj = "";
+              this.carga = false;
+            }else{
+              this.router.navigate(['/home'], navigationExtras);
+              this.msj = "";
+              this.carga = false;
+            }
+          }, 3000);
+        }else{
+          this.error = true;
+          this.msj = "Credenciales Erróneas";
+        };
+      });
+    }else{
+      this.error = true;
+      this.msj = "Credenciales no pueden estar vacías";
+    };
+  };
+
+  /*ingresar(){
+    if(this.user.usuario.length>0 && this.user.password.length>0){
       if(this.auth.loginStorage(this.user.usuario, this.user.password)){
         //Asignación de tipo de usuario
         if(this.user.usuario == "j.riquelme"){
@@ -94,6 +129,7 @@ export class LoginPage implements OnInit {
       this.msj = "Credenciales no pueden estar vacías";
     };
   };
+  */
   
   recargarPagina(){
     this.router.navigate(['login']);

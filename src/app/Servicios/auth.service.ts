@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,33 @@ export class AuthService {
 
   private router: Router = new Router();
 
+  private api: ApiService = new ApiService();
+
+  private tipo: string = "";
+
   constructor() { }
+
+  loginApi(user: string, pass: string): Promise<boolean>{
+    return new Promise((resolve)=>{
+      this.api.login(user).subscribe((response: any)=>{
+        console.log(response)
+        if(response.length>0){
+          if((response[0].username == user || response[0].correo == user) && response[0].pass == pass){
+            console.log(response)
+            this.storage.setItem('conectado', JSON.stringify(response[0]));
+            this.tipo = response[0].rol;
+            resolve(true);
+          }else{
+            resolve(false);
+            console.log('Credenciales no válidas');
+          }
+        }else{
+          resolve(false);
+          console.log('Credenciales no válidas2');
+        };
+      });
+    });
+  };
 
   loginStorage(user: string, pass: string): boolean{
     const listaUsuarios = this.storage.getItem('users') || [];
@@ -76,4 +103,9 @@ export class AuthService {
   logOut(){
     this.storage.removeItem('conectado');
   };
+
+  getRol(){
+    return this.tipo;
+  }
+
 };

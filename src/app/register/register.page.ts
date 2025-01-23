@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { AnimationController } from '@ionic/angular';
 import { AuthService } from '../Servicios/auth.service';
 import { ToastController } from '@ionic/angular';
+import { ApiService } from '../Servicios/api.service';
 
 @Component({
   selector: 'app-register',
@@ -15,13 +16,15 @@ export class RegisterPage implements OnInit {
     private router: Router,
     private animation: AnimationController,
     private auth: AuthService,
-    private toast: ToastController
+    private toast: ToastController,
+    private api: ApiService,
   ) {}
 
   ngOnInit() {}
 
   user = {
     usuario: '',
+    correo: '',
     password: '',
     tipo: '',
   };
