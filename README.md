@@ -1,10 +1,10 @@
 RegistrApp TAV-2025
 
-INSTALAR ANTES DE LEVANTAR LA APP:
-
--Node Modules: npm install
--Json-Server: npm install -g json-server
--EmailJS: npm install -g emailjs-com
-
-EJECUTAR JSON-SERVER ANTES DE LEVANTAR LA APP:
+INSTALAR ANTES DE LEVANTAR LA APP: <br>
+<br>
+-Node Modules: npm install <br>
+-Json-Server: npm install -g json-server <br>
+-EmailJS: npm install -g emailjs-com <br>
+<br>
+EJECUTAR JSON-SERVER ANTES DE LEVANTAR LA APP: <br>
 json-server db.json
