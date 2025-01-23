@@ -18,6 +18,7 @@
       <!--Mensaje de Error-->
       <div>
         <ion-label id="error" *ngIf="error">{{msj}}</ion-label>
+        <ion-label id="error">{{errApi}}</ion-label>
       </div>
       <!--Usuario-->
       <ion-input
@@ -53,19 +54,15 @@
       </ion-input>
       <br>
       <!--Tipo-->
-      <ion-input
-        [(ngModel)]="user.tipo"
-        label-placement="floating"
-        fill="outline"
-        label="Tipo"
-        placeholder="Indique si es profesor o alumno"
-        id="inputs">
-      </ion-input>
+      <ion-select [(ngModel)]="user.tipo" fill="outline" label-placement="floating" label="Seleccione si es profesor o alumno">
+        <ion-select-option value="alum">Alumno</ion-select-option>
+        <ion-select-option value="prof">Profesor</ion-select-option>
+      </ion-select> 
       <br>
       <!--Mat Spinner-->
 
       <!--Botón de Ingresar-->
-      <ion-button (click)="registrar()" id="btnAzules">Registrarse</ion-button>
+      <ion-button (click)="registerApi()" id="btnAzules">Registrarse</ion-button>
       <br>
       <!--Botón de Recuperar Contraseña-->
       <ion-button routerLink="/recuperar-pass" expand="block" id="btnSinfondo">¿Olvidaste tu Contraseña?</ion-button>

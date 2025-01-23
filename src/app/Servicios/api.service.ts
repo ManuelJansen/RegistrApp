@@ -16,4 +16,12 @@ export class ApiService {
   login(user: string):Observable<any>{
     return this.http.get(this.baseUrl+"/users?username=" + user).pipe(retry(3));
   };
+
+  register(data: any): Observable<any>{
+    return this.http.post(this.baseUrl+"/users", data).pipe(retry(3));
+  };
+
+  listarUsuarios(): Observable<any> {
+    return this.http.get(this.baseUrl + '/users').pipe(retry(3));
+  };
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,31 @@ export class AuthService {
 
   private tipo: string = "";
 
+  private errorMsg: string = "";
+
+  private toast: ToastController = new ToastController();
+
   constructor() { }
 
+  registerApi(user: string, data: any): Promise<boolean>{
+    return new Promise((resolve)=>{
+      this.api.listarUsuarios().subscribe((response: any)=>{
+        const listarUsuarios = response;
+        console.log(listarUsuarios);
+        if(listarUsuarios.find((userFind: any)=>userFind.username == user)){
+          this.errorMsg = "Usuario ya existe";
+          console.log('Usuario ya existe');
+        }else{
+          this.api.register(data).subscribe((response: any)=>{
+            console.log(response);
+          });
+        };
+      });
+    });
+  };
+
   loginApi(user: string, pass: string): Promise<boolean>{
+    console.log(user);
     return new Promise((resolve)=>{
       this.api.login(user).subscribe((response: any)=>{
         console.log(response)
@@ -28,6 +51,7 @@ export class AuthService {
           if((response[0].username == user || response[0].correo == user) && response[0].pass == pass){
             console.log(response)
             this.storage.setItem('conectado', JSON.stringify(response[0]));
+            this.generarToast('Registro Exitoso \n Redireccionando');
             this.tipo = response[0].rol;
             resolve(true);
           }else{
@@ -106,6 +130,20 @@ export class AuthService {
 
   getRol(){
     return this.tipo;
-  }
+  };
 
+  getErrMsg(){
+    return this.errorMsg;
+  };
+
+  generarToast(mensaje: string) {
+    const toast = this.toast.create({
+      message: mensaje,
+      duration: 3000,
+      position: 'bottom',
+    });
+    toast.then((res) => {
+      res.present();
+    });
+  }
 };

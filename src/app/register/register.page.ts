@@ -35,6 +35,30 @@ export class RegisterPage implements OnInit {
   error = false;
   carga = false;
 
+  errApi = "";
+
+  registerApi(){
+    if (this.user.usuario.length>0 && this.user.correo.length>0 &&
+        this.user.password.length>0 &&this.user.tipo.length>0){
+          const nuevoUsuario = {
+            username: this.user.usuario,
+            correo: this.user.correo,
+            pass: this.user.password,
+            rol: this.user.tipo
+          }
+          this.auth.registerApi(this.user.usuario, nuevoUsuario).then((res)=>{
+            if(res){
+              this.errApi = this.auth.getErrMsg();
+              console.log(this.errApi);
+              console.log(res);
+            };
+          });
+    } else {
+      this.msj = "Verifique los datos";
+    };
+  };
+  
+
   registrar() {
     //Verificamos que los campos tengan valor
     if (
