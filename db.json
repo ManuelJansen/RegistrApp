@@ -13,6 +13,104 @@
       "correo": "j.riquelme@duocuc.cl",
       "pass": "1234",
       "rol": "prof"
+    },
+    {
+      "id": "0ff6",
+      "username": "asd",
+      "correo": "asd",
+      "pass": "sad",
+      "rol": "alum"
+    },
+    {
+      "id": "fe8a",
+      "username": "asdasda",
+      "correo": "asd",
+      "pass": "asd",
+      "rol": "prof"
+    },
+    {
+      "id": "ea48",
+      "username": "jklio",
+      "correo": "jklj@kdjdjd.cl",
+      "pass": "pass1234",
+      "rol": "alum"
+    },
+    {
+      "id": "f6e9",
+      "username": "lkj",
+      "correo": "lkj",
+      "pass": "lkj1234",
+      "rol": "prof"
+    },
+    {
+      "id": "0308",
+      "username": "mnb",
+      "correo": "mnb",
+      "pass": "mnb",
+      "rol": "prof"
+    },
+    {
+      "id": "fa1e",
+      "username": "bnv",
+      "correo": "nbv",
+      "pass": "nbv",
+      "rol": "alum"
+    },
+    {
+      "id": "a1c0",
+      "username": "bvc",
+      "correo": "bvc",
+      "pass": "bvc",
+      "rol": "prof"
+    },
+    {
+      "id": "d321",
+      "username": "cxz",
+      "correo": "cxz",
+      "pass": "cxz",
+      "rol": "alum"
+    },
+    {
+      "id": "d8cb",
+      "username": "ikl",
+      "correo": "ikl",
+      "pass": "ikl",
+      "rol": "alum"
+    },
+    {
+      "id": "5c6f",
+      "username": "asdasd",
+      "correo": "asda",
+      "pass": "asd",
+      "rol": "prof"
+    },
+    {
+      "id": "4040",
+      "username": "hola",
+      "correo": "zsd",
+      "pass": "asd",
+      "rol": "prof"
+    },
+    {
+      "id": "09f7",
+      "username": "sadad",
+      "correo": "asd",
+      "pass": "asd",
+      "rol": "prof"
+    },
+    {
+      "id": "ebd4",
+      "username": "jkdlsadjfskjf",
+      "correo": "dskfjskdf",
+      "pass": "sdfkj1",
+      "rol": "alum"
+    },
+    {
+      "id": "9b27",
+      "username": "mmmm",
+      "correo": "mmmm",
+      "pass": "mmmjm",
+      "rol": "alum"
     }
   ],
   "clases": [

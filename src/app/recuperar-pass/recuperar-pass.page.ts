@@ -34,10 +34,7 @@ export class RecuperarPassPage implements OnInit {
     password: "",
     correo: "",
   };
-
-
-
-
+  
   recuperar(){
     if (this.user.usuario.length>0 && this.user.correo.length>0){
       this.error = false;

@@ -31,11 +31,16 @@ export class AuthService {
         const listarUsuarios = response;
         console.log(listarUsuarios);
         if(listarUsuarios.find((userFind: any)=>userFind.username == user)){
-          this.errorMsg = "Usuario ya existe";
+          this.generarToast('Usuario ya existe');
           console.log('Usuario ya existe');
+          resolve(false);
         }else{
           this.api.register(data).subscribe((response: any)=>{
             console.log(response);
+              setTimeout(() => {
+                this.router.navigate(['/login']);
+              }, 1500);
+            resolve(true);
           });
         };
       });
@@ -51,7 +56,6 @@ export class AuthService {
           if((response[0].username == user || response[0].correo == user) && response[0].pass == pass){
             console.log(response)
             this.storage.setItem('conectado', JSON.stringify(response[0]));
-            this.generarToast('Registro Exitoso, Redireccionando');
             this.tipo = response[0].rol;
             resolve(true);
           }else{

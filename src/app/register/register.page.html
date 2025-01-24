@@ -16,11 +16,7 @@
       <ion-card-title id="titulos">Registrarse</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <!--Mensaje de Error-->
-      <div>
-        <ion-label id="error" *ngIf="error">{{msj}}</ion-label>
-        <ion-label id="error">{{errApi}}</ion-label>
-      </div>
+      
       <!--Usuario-->
       <ion-input
         [(ngModel)]="user.usuario"
