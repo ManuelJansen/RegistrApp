@@ -68,7 +68,6 @@ export class LoginPage implements OnInit {
           this.carga = true;
           this.tipo = this.auth.getRol();
 
-
           setTimeout(() => {
             if (this.tipo == "alum") {
 
