@@ -13,55 +13,6 @@
       "correo": "j.riquelme@duocuc.cl",
       "pass": "1234",
       "rol": "prof"
-    },
-    {
-      "id": "779f",
-      "username": "j.herrera",
-      "correo": "j.herrera@duocuc.cl",
-      "pass": "1234",
-      "rol": "alum"
-    },
-    {
-      "id": "cf0e",
-      "username": "dsds",
-      "correo": "sdsf",
-      "pass": "sdf",
-      "rol": "sdf"
-    },
-    {
-      "id": "1795",
-      "username": "asdasd",
-      "correo": "asdsa",
-      "pass": "asasd",
-      "rol": "alum"
-    },
-    {
-      "id": "1b17",
-      "username": "c.jansen",
-      "correo": "c.jansen",
-      "pass": "1234",
-      "rol": "prof"
-    },
-    {
-      "id": "5645",
-      "username": "c.aravena",
-      "correo": "asda",
-      "pass": "sqd",
-      "rol": "alum"
-    },
-    {
-      "id": "f8a8",
-      "username": "asdasdsa",
-      "correo": "asda",
-      "pass": "sqd",
-      "rol": "alum"
-    },
-    {
-      "id": "d24a",
-      "username": "k.jime",
-      "correo": "asd",
-      "pass": "asd",
-      "rol": "alum"
     }
   ],
   "clases": [

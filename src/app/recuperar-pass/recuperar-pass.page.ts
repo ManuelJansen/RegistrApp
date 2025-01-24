@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecuperarPassService } from '../Servicios/recuperar-pass.service';
+import { AuthService } from '../Servicios/auth.service';
 
 @Component({
   selector: 'app-recuperar-pass',
@@ -9,7 +10,7 @@ import { RecuperarPassService } from '../Servicios/recuperar-pass.service';
 })
 export class RecuperarPassPage implements OnInit {
 
-  constructor(private recupService: RecuperarPassService) { }
+  constructor(private recupService: RecuperarPassService, private auth: AuthService) { }
 
   numeroAleatorio: number|null = null;
 
@@ -33,6 +34,9 @@ export class RecuperarPassPage implements OnInit {
     password: "",
     correo: "",
   };
+
+
+
 
   recuperar(){
     if (this.user.usuario.length>0 && this.user.correo.length>0){

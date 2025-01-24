@@ -51,7 +51,7 @@ export class AuthService {
           if((response[0].username == user || response[0].correo == user) && response[0].pass == pass){
             console.log(response)
             this.storage.setItem('conectado', JSON.stringify(response[0]));
-            this.generarToast('Registro Exitoso \n Redireccionando');
+            this.generarToast('Registro Exitoso, Redireccionando');
             this.tipo = response[0].rol;
             resolve(true);
           }else{
