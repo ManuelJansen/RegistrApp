@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.animacion();
-  }
+  };
 
   user = {
     usuario: '',
@@ -70,19 +70,18 @@ export class LoginPage implements OnInit {
 
           setTimeout(() => {
             if (this.tipo == "alum") {
-
+              this.generarToast('Ingreso exitoso')
               this.router.navigate(['/home-alumno'], navigationExtras);
-
               this.carga = false;
             } else {
+              this.generarToast('Ingreso exitoso')
               this.router.navigate(['/home'], navigationExtras);
-
               this.carga = false;
             }
           }, 3000);
         } else {
           this.error = true;
-        this.generarToast('Credenciales Erróneas')
+          this.generarToast('Credenciales Erróneas')
         };
       });
     } else {
@@ -101,7 +100,7 @@ export class LoginPage implements OnInit {
     toast.then((res) => {
       res.present();
     });
-  }
+  };
 
   recargarPagina() {
     this.router.navigate(['login']);
