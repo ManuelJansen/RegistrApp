@@ -13,6 +13,13 @@
       "correo": "j.riquelme@duocuc.cl",
       "pass": "1234",
       "rol": "prof"
+    },
+    {
+      "id": "2fc1",
+      "username": "m.jansem",
+      "correo": "ma.jansen@duocuc.cl",
+      "pass": "1234",
+      "rol": "alum"
     }
   ],
   "clases": [
