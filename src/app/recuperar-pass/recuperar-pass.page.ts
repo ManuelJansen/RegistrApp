@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecuperarPassService } from '../Servicios/recuperar-pass.service';
 import { AuthService } from '../Servicios/auth.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-recuperar-pass',
@@ -10,7 +11,7 @@ import { AuthService } from '../Servicios/auth.service';
 })
 export class RecuperarPassPage implements OnInit {
 
-  constructor(private recupService: RecuperarPassService, private auth: AuthService) { }
+  constructor(private recupService: RecuperarPassService, private auth: AuthService, private toast: ToastController) { }
 
   numeroAleatorio: number|null = null;
 
@@ -52,10 +53,25 @@ export class RecuperarPassPage implements OnInit {
           console.log('no se puede recuperar')
         }
       })
-      
     }else{
       this.error = true;
     };
+  };
+
+  comparar(){
+    if(this.numeroIngresado == this.numeroAleatorio){
+      this.correoEnviado = false;
+      this.cambiar = true;
+      this.generarToast('Correo Verificado')
+    }else{
+      this.generarToast('Los Números no coinciden')
+    };
+  };
+
+  cambiarPass(){
+    this.auth.cambiarPass(this.user.usuario, this.newPass).then((response)=>{
+      console.log(response);
+    });
   };
 
   async sendEmail(nombre: string, codigo: number|null, mail: string){
@@ -76,18 +92,14 @@ export class RecuperarPassPage implements OnInit {
     };
   };
 
-  comparar(){
-    if(this.numeroIngresado == this.numeroAleatorio){
-      this.correoEnviado = false;
-      this.cambiar = true;
-    }else{
-      console.log('verificar numeros');
-    };
-  };
-
-  cambiarPass(){
-    this.auth.cambiarPass(this.user.usuario, this.newPass).then((response)=>{
-      console.log(response);
+  generarToast(mensaje: string) {
+    const toast = this.toast.create({
+      message: mensaje,
+      duration: 3000,
+      position: 'bottom',
     });
-  };
+    toast.then((res) => {
+      res.present();
+    });
+  }
 };

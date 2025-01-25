@@ -66,6 +66,7 @@ export class AuthService {
           resolve(true);
         }else{
           console.log('usuario no existe');
+          this.generarToast('Usuario no existe')
           resolve(false);
         };
       });
