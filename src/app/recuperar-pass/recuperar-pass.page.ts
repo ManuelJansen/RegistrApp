@@ -22,6 +22,10 @@ export class RecuperarPassPage implements OnInit {
 
   error = false;
 
+  cambiar = false;
+
+  newPass = "";
+
   generarNumero(): number|null{
     return Math.floor(100000 + Math.random() * 900000);
   };
@@ -36,17 +40,25 @@ export class RecuperarPassPage implements OnInit {
   };
   
   recuperar(){
-    if (this.user.usuario.length>0 && this.user.correo.length>0){
-      this.error = false;
-      this.carga = true;
-      this.numeroAleatorio = this.generarNumero();
-      this.sendEmail(this.user.usuario, this.numeroAleatorio, this.user.correo);
+    if (this.user.usuario.length>0){
+      this.auth.recuperarPassApi(this.user.usuario).then((res)=>{
+        if(res == true){
+          const correo = this.auth.getEmail();
+          this.error = false;
+          this.carga = true;
+          this.numeroAleatorio = this.generarNumero();
+          this.sendEmail(this.user.usuario, this.numeroAleatorio, correo);
+        }else{
+          console.log('no se puede recuperar')
+        }
+      })
+      
     }else{
       this.error = true;
     };
   };
 
-  async sendEmail(nombre: string, codigo: number|null, mail:string){
+  async sendEmail(nombre: string, codigo: number|null, mail: string){
     const formData = {
       user_email: mail,
       to_name: nombre,
@@ -66,9 +78,16 @@ export class RecuperarPassPage implements OnInit {
 
   comparar(){
     if(this.numeroIngresado == this.numeroAleatorio){
-      console.log('numeross iguales');
+      this.correoEnviado = false;
+      this.cambiar = true;
     }else{
       console.log('verificar numeros');
     };
+  };
+
+  cambiarPass(){
+    this.auth.cambiarPass(this.user.usuario, this.newPass).then((response)=>{
+      console.log(response);
+    });
   };
 };

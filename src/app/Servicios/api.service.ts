@@ -24,4 +24,8 @@ export class ApiService {
   listarUsuarios(): Observable<any> {
     return this.http.get(this.baseUrl + '/users').pipe(retry(3));
   };
+
+  eliminarUsuario(id: string): Observable<any>{
+    return this.http.delete(this.baseUrl + '/users/' + id).pipe(retry(3));
+  }
 }

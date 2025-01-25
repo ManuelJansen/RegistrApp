@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "username": "m.jansen",
-      "correo": "ma.jansen@duocuc.cl",
-      "pass": "1234",
-      "rol": "alum"
-    },
-    {
       "id": "2",
       "username": "j.riquelme",
       "correo": "j.riquelme@duocuc.cl",
@@ -19,6 +12,13 @@
       "username": "m.jansem",
       "correo": "ma.jansen@duocuc.cl",
       "pass": "1234",
+      "rol": "alum"
+    },
+    {
+      "id": "9023",
+      "username": "m.jansen",
+      "correo": "ma.jansen@duocuc.cl",
+      "pass": "1467",
       "rol": "alum"
     }
   ],

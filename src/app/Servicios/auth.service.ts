@@ -21,9 +21,56 @@ export class AuthService {
 
   private errorMsg: string = "";
 
+  private correo: string = "";
+
   private toast: ToastController = new ToastController();
 
   constructor() { }
+
+  cambiarPass(user: string, newPass: string): Promise<boolean>{
+    return new Promise((resolve)=>{
+      this.api.login(user).subscribe((response: any)=>{
+        const usuario = {
+          id: response[0].id,
+          username: user,
+          correo: response[0].correo,
+          pass: newPass,
+          rol: response[0].rol,
+        };
+        console.log(usuario);
+        this.api.eliminarUsuario(usuario.id).subscribe((response: any)=>{
+          console.log(response);
+        });
+        const usuarioNew = {
+          username: user,
+          correo: usuario.correo,
+          pass: newPass,
+          rol: usuario.rol
+        }
+        this.api.register(usuarioNew).subscribe((response: any)=>{
+          console.log(response);
+          this.generarToast('Contraseña cambiada exitosamente');
+          this.router.navigate(['/login']);
+          resolve(true);
+        })
+      })
+    })
+  }
+
+  recuperarPassApi(user: string): Promise<boolean>{
+    return new Promise((resolve)=>{
+      this.api.login(user).subscribe((response: any)=>{
+        if(response.length>0){
+          console.log('usuario existe');
+          this.correo = response[0].correo;
+          resolve(true);
+        }else{
+          console.log('usuario no existe');
+          resolve(false);
+        };
+      });
+    });
+  };
 
   registerApi(user: string, data: any): Promise<boolean>{
     return new Promise((resolve)=>{
@@ -136,9 +183,14 @@ export class AuthService {
     return this.tipo;
   };
 
+  getEmail(){
+    return this.correo;
+  }
+
   getErrMsg(){
     return this.errorMsg;
   };
+
 
   generarToast(mensaje: string) {
     const toast = this.toast.create({
