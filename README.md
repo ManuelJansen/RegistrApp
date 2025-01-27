@@ -10,4 +10,4 @@ EJECUTAR JSON-SERVER ANTES DE LEVANTAR LA APP: <br>
 json-server db.json
 
 En caso de error poner npx antes de los comandos:
-Ej: npx json-server db.json
+- Ej: npx json-server db.json
