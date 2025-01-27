@@ -11,7 +11,7 @@ export class ApiService {
 
   private http: HttpClient = inject(HttpClient);
 
-  private baseUrl = "http://localhost:3000";
+  private baseUrl = "https://tms12ckv-3000.brs.devtunnels.ms";
 
   login(user: string):Observable<any>{
     return this.http.get(this.baseUrl+"/users?username=" + user).pipe(retry(3));
